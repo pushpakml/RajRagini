@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rag Ragini Entertainment</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.8.1/css/lightgallery-bundle.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.1/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.1/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <style>
+        .card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            transform: scale(0.9);
+            transition: none;
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .card p {
+            text-align: center;
+            font-size: 14px;
+            color: gray;
+            padding-bottom: 16px;
+        }
+
+        .swiper-slide-active .card {
+            transform: scale(1);
+        }
+
+        .nav-glass {
+            background: rgba(88, 28, 135, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .link-underline {
+            position: relative;
+        }
+
+        .link-underline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: #60a5fa;
+            transition: 0.3s ease;
+        }
+
+        .link-underline:hover::after {
+            width: 100%;
+        }
+
+        .logo-glow {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sticky top-0 z-50 nav-glass shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <a href="index.html">
+            <div class="flex items-center gap-3">
+               
+                <img src="logo.jpg" class="h-12 w-12 rounded-full object-cover logo-glow" alt="Logo">
+
+                <h1 class="text-white text-xl md:text-2xl font-bold tracking-wide">
+                    Rag Ragini <span class="text-purple-300">Entertainment</span>
+                </h1>
+            </div>
+             </a>
+            <div id="mobileMenu"
+                class="hidden md:hidden absolute top-16 left-0 w-full bg-purple-900 text-white flex flex-col gap-4 px-6 py-5 shadow-lg">
+
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html" class="bg-purple-600 px-4 py-2 rounded-lg text-center">
+                    Contact
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-8 text-gray-200 font-medium">
+
+                <a href="index.html" class="link-underline hover:text-blue-400 transition">
+                    Home
+                </a>
+
+                <a href="gallery.html" class="link-underline hover:text-blue-400 transition">
+                    Gallery
+                </a>
+
+                <a href="services.html" class="link-underline hover:text-blue-400 transition">
+                    Services
+                </a>
+
+                <a href="about.html" class="link-underline hover:text-blue-400 transition">
+                    About
+                </a>
+
+                <a href="contact.html"
+                    class="px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-500 transition text-white shadow-md">
+                    Contact
+                </a>
+            </nav>
+
+            <button id="menuBtn" class="md:hidden text-white text-2xl">
+                ☰
+            </button>
+
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto p-6 md:p-10 bg-white rounded-2xl shadow-lg border border-gray-100">
+
+        <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-4">
+            Picnic, Tours & Travel Packages
+        </h2>
+
+        <p class="text-gray-600 leading-relaxed mb-4">
+            We organize memorable picnics, trips, and tours tailored for families, friends,
+            and groups to make your experience fun, relaxing, and unforgettable.
+        </p>
+
+        <p class="text-gray-700 font-semibold mb-3">
+            We provide complete arrangements including:
+        </p>
+
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
+            <li class="flex items-center gap-2">🎟 Invitation & Planning</li>
+            <li class="flex items-center gap-2">📍 Venue Selection</li>
+            <li class="flex items-center gap-2">🎉 Decoration Setup</li>
+            <li class="flex items-center gap-2">🍽 Food & Beverages</li>
+            <li class="flex items-center gap-2">🎨 Theme Arrangement</li>
+            <li class="flex items-center gap-2">📸 Photography & Videography</li>
+            <li class="flex items-center gap-2">🔊 Sound System</li>
+            <li class="flex items-center gap-2">🚐 Transportation</li>
+            <li class="flex items-center gap-2">⭐ Special Guest Arrangements</li>
+        </ul>
+
+        <div class="mt-6 p-4 bg-green-50 border-l-4 border-green-500 rounded-lg">
+            <p class="text-gray-700">
+                And many more customizable services based on your event needs.
+            </p>
+        </div>
+
+        <div class="mt-5 flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <p class="text-sm text-gray-600">
+                <span class="font-semibold">Starting price:</span> Rs. 1500/- per person
+            </p>
+
+            <p class="text-xs text-gray-500">
+                * Terms and conditions apply
+            </p>
+        </div>
+
+    </div>
+
+    <footer class="bg-slate-950 text-gray-300 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="logo.jpg" alt="Logo" class="h-12 w-12 rounded-full object-cover" />
+                        <h1 class="text-xl font-bold text-white">
+                            Rag Ragini Entertainment
+                        </h1>
+                    </div>
+
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Bringing stories to life through music, media, and unforgettable events.
+                    </p>
+
+                    <p class="text-xs text-gray-500 pt-2">
+                        © 2026 All Rights Reserved
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-white font-semibold text-lg mb-4">
+                        Our Services
+                    </h2>
+
+                    <ul class="space-y-2 text-m">
+                        <li class="hover:text-white transition">Artist Management Package</li>
+                        <li class="hover:text-white transition">Wedding Package</li>
+                        <li class="hover:text-white transition">General Assembly Package</li>
+                        <li class="hover:text-white transition">Picnic Package</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-white font-semibold text-lg mb-4">
+                        Connect With Us
+                    </h2>
+
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="https://www.facebook.com/RagRaginiEntertainment"
+                                class="hover:text-white transition">
+                                Facebook
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="mailto:ragragini111@gmail.com" class="hover:text-white transition">
+                                Email Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/xyVU4KSYqaM?si=sPnM5RI5kzSV4pCY"
+                                class="hover:text-white transition">
+                                YouTube
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="mt-10 pt-6 border-t border-white/10 text-center text-xs text-gray-500">
+                Designed with passion for entertainment & creativity.
+            </div>
+
+        </div>
+    </footer>
+
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+    </script>
+</body>
+
+</html>
