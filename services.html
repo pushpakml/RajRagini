@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         .card {
             background: white;
@@ -68,6 +72,45 @@
         .logo-glow {
             box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
         }
+
+        .card {
+            background: rgba(255, 255, 255, .65);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, .3);
+            border-radius: 24px;
+        }
+
+        #cursorGlow {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(34, 197, 94, .22), transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: .08s;
+        }
+
+        .btn {
+            transition: .4s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 30px #22c55e;
+        }
+
+        .card {
+            overflow: hidden;
+        }
+
+        .card img {
+            transition: .6s;
+        }
+
+        .card:hover img {
+            transform: scale(1.15);
+        }
     </style>
 </head>
 
@@ -75,16 +118,16 @@
     <div class="sticky top-0 z-50 nav-glass shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-           <a href="index.html">
-            <div class="flex items-center gap-3">
-               
-                <img src="logo.jpg" class="h-12 w-12 rounded-full object-cover logo-glow" alt="Logo">
+            <a href="index.html">
+                <div class="flex items-center gap-3">
 
-                <h1 class="text-white text-xl md:text-2xl font-bold tracking-wide">
-                    Rag Ragini <span class="text-purple-300">Entertainment</span>
-                </h1>
-            </div>
-             </a>
+                    <img src="logo.jpg" class="h-12 w-12 rounded-full object-cover logo-glow" alt="Logo">
+
+                    <h1 class="text-white text-xl md:text-2xl font-bold tracking-wide">
+                        Rag Ragini <span class="text-purple-300">Entertainment</span>
+                    </h1>
+                </div>
+            </a>
 
             <div id="mobileMenu"
                 class="hidden md:hidden absolute top-16 left-0 w-full bg-purple-900 text-white flex flex-col gap-4 px-6 py-5 shadow-lg">
@@ -131,62 +174,165 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <div class="text-center py-10">
-        <h2
-            class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700">
-            Our Services
-        </h2>
-        <div class="w-24 h-1 bg-green-500 mx-auto mt-3 rounded-full"></div>
-    </div>
+    <!-- Services Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-white via-green-50 to-emerald-100 py-24">
+        
 
-    <div class="swiper mySwiper max-w-7xl mx-auto px-6 pb-12">
-        <div class="swiper-wrapper">
+        <div class="text-center max-w-4xl mx-auto px-6">
+            <h2
+                class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700">
+                Our Services
+            </h2>
 
-            <div class="swiper-slide p-2">
-                <div class="card">
-                    <a href="artistpackage.html">
-                        <img src="priyanka.jpg" />
-                        <h3>Artist Management</h3>
-                    </a>
-                    <p>Book artists for concerts and events.</p>
+            <div class="w-24 h-1 bg-green-500 mx-auto mt-4 rounded-full"></div>
+
+            <p class="mt-8 text-gray-600 text-lg leading-8">
+                At <span class="font-semibold text-green-700">Rag Ragini Entertainment</span>,
+                we turn your special moments into unforgettable memories. Whether you're
+                planning a dream wedding, organizing a grand concert, arranging a corporate
+                gathering, or preparing a fun-filled picnic, our experienced team takes care
+                of every detail with creativity, professionalism, and passion.
+                From artist management to complete event planning, we ensure every event
+                reflects elegance, joy, and excellence.
+            </p>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper max-w-7xl mx-auto px-6 mt-16">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide p-2">
+                    <div class="card">
+                        <a href="artistpackage.html">
+                            <img src="priyanka.jpg" />
+                            <h3>Artist Management</h3>
+                        </a>
+                        <p>
+                            Book renowned singers, bands, DJs, hosts, and performers
+                            to make your event unforgettable.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="swiper-slide">
-                <div class="card">
-                    <a href="weddingpackage.html">
-                        <img src="wedding.jpg" />
-                        <h3>Wedding Package</h3>
-                    </a>
-                    <p>Full wedding planning services.</p>
+                <div class="swiper-slide p-2">
+                    <div class="card">
+                        <a href="weddingpackage.html">
+                            <img src="wedding.jpg" />
+                            <h3>Wedding Package</h3>
+                        </a>
+                        <p>
+                            Complete wedding planning with decoration,
+                            music, photography, catering, and entertainment.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="swiper-slide">
-                <div class="card">
-                    <a href="generalpackage.html">
-                        <img src="venue.jpg" />
-                        <h3>General Assembly</h3>
-                    </a>
-                    <p>Venue, sound & photography setup.</p>
+                <div class="swiper-slide p-2">
+                    <div class="card">
+                        <a href="generalpackage.html">
+                            <img src="venue.jpg" />
+                            <h3>General Assembly</h3>
+                        </a>
+                        <p>
+                            Professional venue setup, sound systems,
+                            lighting, stage decoration, and photography.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="swiper-slide">
-                <div class="card">
-                    <a href="picnicpakage.html">
-                        <img src="picnic.jpg" />
-                        <h3>Picnic & Tour</h3>
-                    </a>
-                    <p>Travel and group packages.</p>
+                <div class="swiper-slide p-2">
+                    <div class="card">
+                        <a href="picnicpakage.html">
+                            <img src="picnic.jpg" />
+                            <h3>Picnic & Tour</h3>
+                        </a>
+                        <p>
+                            Exciting travel, picnic, and tour packages
+                            designed for families, friends, and organizations.
+                        </p>
+                    </div>
                 </div>
+
             </div>
 
         </div>
+
+        <!-- Why Choose Us -->
+        <div class="max-w-6xl mx-auto mt-24 px-6">
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition">
+                    <div class="text-5xl mb-4"><i class="fa-solid fa-diagram-project"></i></div>
+                    <h3 class="text-2xl font-bold text-green-700">
+                        Professional Planning
+                    </h3>
+                    <p class="mt-4 text-gray-600">
+                        Every event is carefully planned from start to finish,
+                        ensuring a smooth and stress-free experience.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition">
+                    <div class="text-5xl mb-4"><i class="fa-solid fa-headset"></i></div>
+                    <h3 class="text-2xl font-bold text-green-700">
+                        Quality Service
+                    </h3>
+                    <p class="mt-4 text-gray-600">
+                        We use trusted vendors, talented artists, and premium
+                        equipment to deliver unforgettable events.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition">
+                    <div class="text-5xl mb-4"><i class="fa-solid fa-face-grin-hearts"></i></div>
+                    <h3 class="text-2xl font-bold text-green-700">
+                        Customer Satisfaction
+                    </h3>
+                    <p class="mt-4 text-gray-600">
+                        Your happiness is our priority. We work closely with
+                        you to bring your dream celebration to life.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    
+    <section class="py-24 text-center">
+
+        <h2 class="text-5xl font-bold mb-6">
+            Let's Create Your Dream Event
+        </h2>
+
+        <p class="text-gray-600 max-w-2xl mx-auto">
+            From weddings to concerts, corporate events, and unforgettable celebrations, we're here to make every moment
+            extraordinary.
+        </p>
+
+        <a href="contact.html"
+            class="inline-block mt-10 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition hover:scale-105">
+            Book Your Event
+        </a>
+
+    </section>
+
+    <div class="absolute top-32 right-20 text-5xl opacity-10 animate-bounce">
+        🎵
+    </div>
+
+    <div class="absolute bottom-40 left-16 text-6xl opacity-10 animate-pulse">
+        🎤
+    </div>
+
+    <div class="absolute top-60 left-1/2 text-6xl opacity-30 animate-bounce">
+        💍
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 
 
 

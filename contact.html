@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .card {
             background: white;
@@ -76,15 +79,15 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
             <a href="index.html">
-            <div class="flex items-center gap-3">
-               
-                <img src="logo.jpg" class="h-12 w-12 rounded-full object-cover logo-glow" alt="Logo">
+                <div class="flex items-center gap-3">
 
-                <h1 class="text-white text-xl md:text-2xl font-bold tracking-wide">
-                    Rag Ragini <span class="text-purple-300">Entertainment</span>
-                </h1>
-            </div>
-             </a>
+                    <img src="logo.jpg" class="h-12 w-12 rounded-full object-cover logo-glow" alt="Logo">
+
+                    <h1 class="text-white text-xl md:text-2xl font-bold tracking-wide">
+                        Rag Ragini <span class="text-purple-300">Entertainment</span>
+                    </h1>
+                </div>
+            </a>
 
             <div id="mobileMenu"
                 class="hidden md:hidden absolute top-16 left-0 w-full bg-purple-900 text-white flex flex-col gap-4 px-6 py-5 shadow-lg">
@@ -128,26 +131,35 @@
 
         </div>
     </div>
-    <section class="max-w-6xl mx-auto py-16 px-6">
-        <div class="grid md:grid-cols-2 gap-10 items-start">
 
-            <div class="text-center md:text-left">
+    <section class="max-w-6xl mx-auto py-20 px-6 font-[Poppins]">
 
-                <h2
-                    class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700">
-                    Contact Us
-                </h2>
+        <div class="text-center mb-14">
 
-                <p class="text-gray-600 mt-3 text-lg">
-                    You can reach us through any of the platforms below.
-                </p>
+            <h2
+                class="text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700 font-[Montserrat]">
+                Contact Us
+            </h2>
 
-                <div class="grid gap-6 mt-10">
+            <div class="w-24 h-1 bg-green-500 mx-auto mt-4 rounded-full"></div>
+
+            <p class="text-gray-600 mt-5 text-lg max-w-2xl mx-auto">
+                We’re always ready to help you plan your perfect event. Reach out to us anytime through any platform
+                below.
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+
+            <div>
+
+                <div class="grid gap-6">
 
                     <div
-                        class="flex items-center justify-between bg-white shadow-md hover:shadow-xl transition rounded-xl p-5">
+                        class="flex items-center justify-between bg-white shadow-md hover:shadow-xl transition rounded-2xl p-5">
                         <div>
-                            <h3 class="text-lg font-bold">Email</h3>
+                            <h3 class="text-lg font-bold font-[Montserrat]">Email</h3>
                             <p class="text-gray-500 text-sm">For business inquiries</p>
                         </div>
                         <a href="mailto:ragragini111@gmail.com"
@@ -157,9 +169,9 @@
                     </div>
 
                     <div
-                        class="flex items-center justify-between bg-white shadow-md hover:shadow-xl transition rounded-xl p-5">
+                        class="flex items-center justify-between bg-white shadow-md hover:shadow-xl transition rounded-2xl p-5">
                         <div>
-                            <h3 class="text-lg font-bold">YouTube</h3>
+                            <h3 class="text-lg font-bold font-[Montserrat]">YouTube</h3>
                             <p class="text-gray-500 text-sm">Watch our latest videos</p>
                         </div>
                         <a href="https://www.youtube.com/@RagRaginiEntertainment" target="_blank"
@@ -169,9 +181,9 @@
                     </div>
 
                     <div
-                        class="flex items-center justify-between bg-white shadow-md hover:shadow-xl transition rounded-xl p-5">
+                        class="flex items-center justify-between bg-white shadow-md hover:shadow-xl transition rounded-2xl p-5">
                         <div>
-                            <h3 class="text-lg font-bold">Facebook</h3>
+                            <h3 class="text-lg font-bold font-[Montserrat]">Facebook</h3>
                             <p class="text-gray-500 text-sm">Follow us for updates</p>
                         </div>
                         <a href="https://www.facebook.com/RagRaginiEntertainment" target="_blank"
@@ -181,9 +193,9 @@
                     </div>
 
                     <div
-                        class="flex items-center justify-between bg-white shadow-md hover:shadow-xl transition rounded-xl p-5">
+                        class="flex items-center justify-between bg-white shadow-md hover:shadow-xl transition rounded-2xl p-5">
                         <div>
-                            <h3 class="text-lg font-bold">WhatsApp</h3>
+                            <h3 class="text-lg font-bold font-[Montserrat]">WhatsApp</h3>
                             <p class="text-gray-500 text-sm">Quick chat support</p>
                         </div>
                         <a href="https://wa.me/9779768517995" target="_blank"
@@ -193,11 +205,26 @@
                     </div>
 
                 </div>
+
+                <div class="mt-10 bg-green-50 border border-green-100 p-6 rounded-2xl shadow-sm">
+
+                    <h3 class="text-xl font-bold font-[Montserrat] text-green-800 mb-2">
+                        <i class="fa-solid fa-location-dot"></i> Our Address
+                    </h3>
+
+                    <p class="text-gray-700 leading-relaxed">
+                        Rag Ragini Entertainment Pvt. Ltd.<br>
+                        Bhaktapur, Nepal<br>
+                        We operate across Nepal for weddings, concerts, cultural programs, and corporate events.
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="bg-white shadow-xl rounded-2xl p-8">
+            <div class="bg-white shadow-2xl rounded-2xl p-8">
 
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center font-[Montserrat]">
                     Send a Message
                 </h3>
 
@@ -216,7 +243,7 @@
                         class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
 
                     <button type="submit"
-                        class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+                        class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold hover:scale-[1.02]">
                         Send Message
                     </button>
 
@@ -225,6 +252,7 @@
             </div>
 
         </div>
+
     </section>
 
 

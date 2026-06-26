@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.1/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.1/plugins/zoom/lg-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.8.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         .card {
             background: white;
@@ -73,56 +75,129 @@
         .logo-glow {
             box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
         }
+
+        .hero-bg {
+            animation: zoomBg 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes zoomBg {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.12);
+            }
+        }
+
+         .fade-up {
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: .3s;
+        }
+
+        .delay-2 {
+            animation-delay: .6s;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-glass {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: #c084fc;
+            transition: .3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mission-text {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideLeft 1s ease forwards;
+        }
+
+        @keyframes slideLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .mission-image {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideRight 1s ease forwards;
+        }
+
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        #mission {
+            scroll-margin-top: 100px;
+        }
+
+        #reviews {
+            scroll-margin-top: 100px;
+        }
     </style>
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-yellow-200/30">
     <div class="sticky top-0 z-50 nav-glass shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-             <a href="index.html">
-            <div class="flex items-center gap-3">
-               
-                <img src="logo.jpg" class="h-12 w-12 rounded-full object-cover logo-glow" alt="Logo">
+            <a href="index.html">
+                <div class="flex items-center gap-3">
+                    <img src="logo.jpg" class="h-12 w-12 rounded-full object-cover logo-glow" alt="Logo">
 
-                <h1 class="text-white text-xl md:text-2xl font-bold tracking-wide">
-                    Rag Ragini <span class="text-purple-300">Entertainment</span>
-                </h1>
-            </div>
-             </a>
-
-            <div id="mobileMenu"
-                class="hidden md:hidden absolute top-16 left-0 w-full bg-purple-900 text-white flex flex-col gap-4 px-6 py-5 shadow-lg">
-
-                <a href="index.html">Home</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="services.html">Services</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html" class="bg-purple-600 px-4 py-2 rounded-lg text-center">
-                    Contact
-                </a>
-            </div>
+                    <h1 class="text-white text-xl md:text-2xl font-bold tracking-wide">
+                        Rag Ragini <span class="text-purple-300">Entertainment</span>
+                    </h1>
+                </div>
+            </a>
 
             <nav class="hidden md:flex items-center gap-8 text-gray-200 font-medium">
 
-                <a href="index.html" class="link-underline hover:text-blue-400 transition">
-                    Home
-                </a>
-
-                <a href="gallery.html" class="link-underline hover:text-blue-400 transition">
-                    Gallery
-                </a>
-
-                <a href="services.html" class="link-underline hover:text-blue-400 transition">
-                    Services
-                </a>
-
-                <a href="about.html" class="link-underline hover:text-blue-400 transition">
-                    About
-                </a>
+                <a href="index.html" class="nav-link hover:text-purple-300 transition">Home</a>
+                <a href="gallery.html" class="nav-link hover:text-purple-300 transition">Gallery</a>
+                <a href="services.html" class="nav-link hover:text-purple-300 transition">Services</a>
+                <a href="about.html" class="nav-link hover:text-purple-300 transition">About</a>
 
                 <a href="contact.html"
-                    class="px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-500 transition text-white shadow-md">
+                    class="px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-500 text-white shadow-md transition">
                     Contact
                 </a>
             </nav>
@@ -132,26 +207,50 @@
             </button>
 
         </div>
+
+        <div id="mobileMenu"
+            class="hidden md:hidden absolute top-16 left-0 w-full bg-black/90 backdrop-blur-md text-white flex flex-col gap-4 px-6 py-5">
+
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+
+            <a href="contact.html" class="bg-purple-600 px-4 py-2 rounded-lg text-center">
+                Contact
+            </a>
+
+        </div>
     </div>
 
-    <div class="relative h-[420px] md:h-[500px] bg-[url('/desk.jpg')] bg-cover bg-center">
-        <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative h-[420px] md:h-[600px] overflow-hidden">
+
+        <img src="couple.jpg" class="absolute inset-0 w-full h-full object-cover hero-bg" alt="Hero Image">
+
+        <div class="absolute inset-0 bg-black/65"></div>
+
+        <div class="absolute top-10 left-10 w-72 h-72 bg-purple-500/20 blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-72 h-72 bg-pink-500/20 blur-3xl animate-pulse"></div>
 
         <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
-            <h1 class="text-3xl md:text-6xl font-extrabold text-white">
+
+            <h1 class="text-4xl md:text-7xl font-extrabold text-white fade-up">
                 Rag Ragini Entertainment
             </h1>
 
-            <p class="mt-4 md:mt-6 text-base md:text-2xl text-gray-200 max-w-2xl">
-                Bringing stories to life through Music, Media, and Unforgettable Events.
+            <p class="mt-5 text-lg md:text-2xl text-gray-200 max-w-3xl fade-up delay-1">
+                Bringing stories to life through Music, Media and Unforgettable Events.
             </p>
 
-            <button
-                class="mt-6 md:mt-8 px-5 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold transition">
-                Explore More
+            <button><a href="#mission"
+                    class="mt-8 px-8 py-3 bg-red-600 hover:bg-red-700 text-white rounded-full font-semibold shadow-xl transition hover:scale-105 inline-block">
+                    Explore More
+                </a>
             </button>
+
         </div>
     </div>
+
 
     <div id="lightgallery" class="columns-2 md:columns-3 lg:columns-4 gap-4 p-6 space-y-4">
 
@@ -261,6 +360,213 @@
 
         </div>
     </div>
+
+    <div class="relative py-24 px-6 overflow-hidden bg-[#0a0a0f]">
+
+        <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 20% 30%, #f97316 0%, transparent 40%),
+                               radial-gradient(circle at 80% 20%, #22c55e 0%, transparent 40%),
+                               radial-gradient(circle at 50% 80%, #3b82f6 0%, transparent 40%);
+               filter: blur(60px);">
+        </div>
+
+         <div class="relative text-center text-white max-w-3xl mx-auto">
+
+            <h2 class="text-5xl font-extrabold tracking-wide font-[Poppins]">
+                Foods & Drinks
+            </h2>
+
+            <p class="mt-5 text-gray-300 text-lg leading-relaxed font-[Poppins]">
+                From mouthwatering fast food dishes to elegant four-course meals, our events are a true foodie paradise.
+                Every dish is carefully curated to match the mood of your celebration.
+            </p>
+
+            <p class="mt-3 text-gray-400 font-[Poppins]">
+                We also offer a dedicated beverage experience — from refreshing mocktails to premium bar setups for
+                special events.
+            </p>
+
+        </div>
+
+         <div class="relative max-w-6xl mx-auto mt-14 grid grid-cols-1 md:grid-cols-4 gap-6">
+
+            <img src="drink1.jpg"
+                class="rounded-2xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg"
+                alt="Food">
+
+            <img src="food1.avif"
+                class="rounded-2xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg"
+                alt="Food">
+
+            <img src="drink2.avif"
+                class="rounded-2xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg"
+                alt="Drink">
+
+            <img src="food2.avif"
+                class="rounded-2xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg"
+                alt="Drink">
+
+            <img src="drink3.avif"
+                class="rounded-2xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg"
+                alt="Drink">
+
+            <img src="food3.avif"
+                class="rounded-2xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg"
+                alt="Drink">
+
+            <img src="drink4.avif"
+                class="rounded-2xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg"
+                alt="Drink">
+
+            <img src="food4.avif"
+                class="rounded-2xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg"
+                alt="Drink">
+
+        </div>
+
+    </div>
+    <div class="relative py-20 px-6 overflow-hidden">
+
+        <div class="absolute inset-0 bg-[url('event-bg.jpg')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-black/70"></div>
+
+         <div class="absolute top-10 left-10 w-72 h-72 bg-purple-500/20 blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-72 h-72 bg-pink-500/20 blur-3xl animate-pulse"></div>
+
+         <div class="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+             <div class="text-white space-y-6 mission-text">
+
+                <h2 class="text-4xl md:text-5xl font-extrabold">
+                    Our Mission
+                </h2>
+
+                <p class="text-gray-200 text-lg leading-relaxed">
+                    Our mission is to conduct every event in a way that it becomes more than just a moment —
+                    it becomes a memory that lives forever.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed">
+                    At Rag Ragini Entertainment, we believe every celebration has a soul. Whether it's a wedding,
+                    cultural program, stage show, or corporate event — we transform ordinary gatherings into
+                    unforgettable experiences filled with emotion, music, and storytelling.
+                </p>
+
+                <p class="text-gray-300 leading-relaxed">
+                    We don’t just organize events — we craft emotions that get passed down as stories through
+                    generations.
+                    Every light, every sound, every moment is designed with passion and precision.
+                </p>
+
+                <button
+                    class="mt-4 px-6 py-3 bg-purple-600 hover:bg-purple-500 rounded-full font-semibold transition hover:scale-105">
+                    Learn More
+                </button>
+
+            </div>
+
+             <div class="relative mission-image">
+
+                <img src="baby.jpg"
+                    class="rounded-2xl shadow-2xl w-full object-cover hover:scale-105 transition duration-500"
+                    alt="Mission Image">
+
+                 <div
+                    class="absolute -bottom-5 -right-5 bg-white text-black px-4 py-2 rounded-lg shadow-lg font-semibold animate-bounce">
+                    Since 2023
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+     <div class="relative py-24 px-6 overflow-hidden bg-[#0b0b14]">
+
+         <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 20% 20%, #a855f7 0%, transparent 40%),
+                               radial-gradient(circle at 80% 30%, #ec4899 0%, transparent 40%),
+                               radial-gradient(circle at 50% 80%, #3b82f6 0%, transparent 40%);
+               filter: blur(40px);">
+        </div>
+
+         <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                               linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+               background-size: 60px 60px;">
+        </div>
+
+         <div class="relative text-center text-white mb-14">
+            <h2 class="text-4xl md:text-5xl font-extrabold">
+                What People Say
+            </h2>
+            <p class="mt-3 text-gray-400 text-lg">
+                We don’t just claim excellence — our clients experience it and share their stories with the world.
+            </p>
+        </div>
+
+         <div class="relative max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+
+             <div
+                class="group bg-white/5 border border-white/10 backdrop-blur-md p-6 rounded-2xl text-white hover:border-purple-500 transition hover:-translate-y-2 duration-300">
+
+                <div class="flex items-center justify-between">
+                    <p class="text-yellow-400">★★★★★</p>
+                    <span class="text-xs text-gray-400">Google</span>
+                </div>
+
+                <p class="mt-4 text-gray-300 leading-relaxed">
+                    “One of the most professional event teams we’ve worked with.
+                    Everything was perfectly timed and beautifully executed.”
+                </p>
+
+                <div class="mt-6">
+                    <p class="font-semibold">Rahul Sharma</p>
+                    <p class="text-sm text-gray-500">Wedding Client</p>
+                </div>
+
+            </div>
+
+            <div
+                class="group bg-white/5 border border-white/10 backdrop-blur-md p-6 rounded-2xl text-white hover:border-pink-500 transition hover:-translate-y-2 duration-300">
+
+                <div class="flex items-center justify-between">
+                    <p class="text-yellow-400">★★★★★</p>
+                    <span class="text-xs text-gray-400">Google</span>
+                </div>
+
+                <p class="mt-4 text-gray-300 leading-relaxed">
+                    “Amazing lighting, sound, and stage setup. They completely transformed our event into a premium
+                    experience.”
+                </p>
+
+                <div class="mt-6">
+                    <p class="font-semibold">Anjali Karki</p>
+                    <p class="text-sm text-gray-500">Corporate Event</p>
+                </div>
+
+            </div>
+
+            <div
+                class="group bg-white/5 border border-white/10 backdrop-blur-md p-6 rounded-2xl text-white hover:border-blue-500 transition hover:-translate-y-2 duration-300">
+
+                <div class="flex items-center justify-between">
+                    <p class="text-yellow-400">★★★★★</p>
+                    <span class="text-xs text-gray-400">Google</span>
+                </div>
+
+                <p class="mt-4 text-gray-300 leading-relaxed">
+                    “Highly creative team. They don’t just organize events — they create experiences people remember.”
+                </p>
+
+                <div class="mt-6">
+                    <p class="font-semibold">Suresh Thapa</p>
+                    <p class="text-sm text-gray-500">Music Event</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
